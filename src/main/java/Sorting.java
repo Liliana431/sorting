@@ -19,15 +19,18 @@ public class Sorting {
     }
 
     public void sorter(){
-        // сортировка массива, используется алгоритм сортировки пузырьком
-        for (int out = array.length - 1; out >= 1; out--){
-            for (int in = 0; in < out; in++){
-                if(array[in] > array[in + 1]) {
-                    int x = array[in];
-                    array[in] = array[in + 1];
-                    array[in + 1] = x;
+        // сортировка массива, используется алгоритм сортировки вставками
+        for (int left = 0; left < array.length; left++) {
+            int x = array[left];
+            int i = left - 1;
+            for (; i >= 0; i--) {
+                if (x < array[i]) {
+                    array[i + 1] = array[i];
+                } else {
+                    break;
                 }
             }
+            array[i + 1] = x;
         }
     }
 }
